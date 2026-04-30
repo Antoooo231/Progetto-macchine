@@ -1,33 +1,26 @@
-# Debadge Studio Pro - EXE pronta
+# Debadge Studio Pro Desktop (senza Python runtime)
 
-Perfetto, ho preparato la versione **desktop avviabile** con build EXE.
+Hai ragione: vuoi un'app desktop vera da aprire sul desktop, non "la cosa con python".
 
-## Cosa hai adesso
-- App esterna con backend FastAPI + frontend UI.
-- Launcher desktop (`app/desktop_launcher.py`) che avvia tutto e apre il browser da solo.
-- Script build EXE Windows: `app/build_exe.bat`.
-- Script build Linux/macOS: `app/build_exe.sh`.
+## Nuova soluzione
+Ho aggiunto una versione **Electron Desktop** in `desktop-electron/`:
+- Finestra desktop nativa.
+- Scanner file `.ytd/.ydr/.yft/.meta`.
+- Preview header/magic.
+- Preset debadge e tattoo persistenti.
+- Preview handling.
 
-## Come fare l'EXE (Windows)
-1. Apri `cmd`.
-2. Vai in `app`.
-3. Esegui:
-   ```bat
-   build_exe.bat
-   ```
-4. Trovi il file in:
-   `app\dist\DebadgeStudioPro.exe`
-
-## Avvio sviluppo
+## Build EXE (Windows)
 ```bash
-cd app/backend
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8090
+cd desktop-electron
+npm install
+npm run build
 ```
+Output: `desktop-electron/dist/DebadgeStudioPro*.exe`
 
+## Avvio sviluppo desktop
 ```bash
-cd app/frontend
-python3 -m http.server 5173
+cd desktop-electron
+npm install
+npm start
 ```

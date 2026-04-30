@@ -1,0 +1,19 @@
+{
+  "name": "debadge-studio-pro",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "31.0.2",
+    "electron-builder": "24.13.3"
+  },
+  "build": {
+    "appId": "com.debadge.studio",
+    "productName": "DebadgeStudioPro",
+    "files": ["main.js", "preload.js", "renderer.html", "renderer.js", "renderer.css"],
+    "win": {"target": ["portable"]}
+  }
+}
