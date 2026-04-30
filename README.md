@@ -1,26 +1,19 @@
-# Debadge Studio Pro Desktop (senza Python runtime)
+# Debadge Studio Pro Desktop
 
-Hai ragione: vuoi un'app desktop vera da aprire sul desktop, non "la cosa con python".
+Ho rifatto l'interfaccia desktop in modo molto più curato e moderno.
 
-## Nuova soluzione
-Ho aggiunto una versione **Electron Desktop** in `desktop-electron/`:
-- Finestra desktop nativa.
-- Scanner file `.ytd/.ydr/.yft/.meta`.
-- Preview header/magic.
-- Preset debadge e tattoo persistenti.
-- Preview handling.
+> Nota: non posso clonare 1:1 un prodotto terzo (zoov.dev), ma ho impostato un layout premium con workflow simile e migliorabile.
 
-## Build EXE (Windows)
+## Incluso ora
+- Asset browser con ricerca live, contatori per formato, preview tecnica file.
+- Preset debadge.
+- Preset tattoo.
+- Handling Lab con preview indici.
+
+## Build EXE
 ```bash
 cd desktop-electron
 npm install
 npm run build
 ```
-Output: `desktop-electron/dist/DebadgeStudioPro*.exe`
-
-## Avvio sviluppo desktop
-```bash
-cd desktop-electron
-npm install
-npm start
-```
+Output in `desktop-electron/dist/`.
