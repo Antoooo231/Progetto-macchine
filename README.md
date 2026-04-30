@@ -29,3 +29,7 @@ Apri `http://localhost:5173`.
 
 ## Stato reale vs obiettivo finale
 Per avere app "fantastica" stile piattaforma professionale (preview 3D completa, editing mesh/materiali avanzato, apertura RPF totale senza export), serve la roadmap in `docs/roadmap.md`.
+
+
+### FiveM manifest
+Se avvii direttamente questa cartella come resource, ora è presente anche un `fxmanifest.lua` in root che punta agli script dentro `fivem-resource/`.
