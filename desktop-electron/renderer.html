@@ -5,7 +5,13 @@
   <link rel='stylesheet' href='renderer.css'><title>Debadge Studio Pro</title>
 </head>
 <body>
-<header><h1>Debadge Studio Pro</h1><p>Tattoo AI-like composer + Vehicle Stream Explorer</p></header>
+<header><h1>Debadge Studio Pro</h1><p>3D Vehicle Preview + Tattoo + Stream Explorer</p></header>
+
+<section class='panel'>
+  <h2>3D Vehicle Preview & Basic Editing</h2>
+  <div class='row'><button id='pick3d'>Apri modello 3D (.glb/.gltf/.obj)</button><input id='modelColor' type='color' value='#bbbbbb'><button id='applyColor'>Applica colore</button><button id='scaleUp'>Scala +</button><button id='scaleDown'>Scala -</button><button id='rotY'>Ruota Y</button></div>
+  <div id='viewer3d'></div>
+</section>
 
 <section class='panel'>
   <h2>Vehicle Stream Explorer (preview + edit base)</h2>
@@ -21,15 +27,6 @@
   <pre id='tattooOut'>Carica una immagine per generare preview tattoo.</pre>
 </section>
 
-<section class='panel'>
-  <h2>Debadge Presets</h2>
-  <div class='row'><input id='dname' placeholder='Nome preset'><button id='dsave'>Salva</button><button id='dlist'>Lista</button></div><pre id='dout'></pre>
-</section>
-
-<section class='panel'>
-  <h2>Handling Lab</h2>
-  <div class='row'><input id='mass' placeholder='Mass'><input id='drive' placeholder='Drive'><input id='brake' placeholder='Brake'><input id='traction' placeholder='Traction'><button id='hprev'>Preview</button></div><pre id='hout'></pre>
-</section>
-<script src='renderer.js'></script>
+<script type='module' src='renderer.js'></script>
 </body>
 </html>

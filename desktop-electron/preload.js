@@ -11,4 +11,5 @@ contextBridge.exposeInMainWorld('api', {
   pickImage: () => ipcRenderer.invoke('pick-image'),
   readImageBase64: (p) => ipcRenderer.invoke('read-image-base64', p),
   scanVehicleStream: (p) => ipcRenderer.invoke('scan-vehicle-stream', p),
+  pick3dModel: () => ipcRenderer.invoke('pick-3d-model'),
 });

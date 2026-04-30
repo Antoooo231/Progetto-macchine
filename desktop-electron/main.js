@@ -58,6 +58,16 @@ ipcMain.handle('read-image-base64', async (_, imagePath) => {
   return `data:image/${path.extname(imagePath).replace('.','')};base64,${buf.toString('base64')}`;
 });
 
+
+ipcMain.handle('pick-3d-model', async () => {
+  const { canceled, filePaths } = await dialog.showOpenDialog({
+    properties: ['openFile'],
+    filters: [{ name: '3D Models', extensions: ['glb', 'gltf', 'obj'] }],
+  });
+  if (canceled) return null;
+  return filePaths[0];
+});
+
 ipcMain.handle('scan-vehicle-stream', async (_, rootPath) => {
   const exts = new Set(['.yft', '.ytd', '.ydr', '.meta']);
   const vehicles = [];

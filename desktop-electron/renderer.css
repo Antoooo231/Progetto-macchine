@@ -13,3 +13,5 @@ ul{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius
 li{padding:8px;border-bottom:1px solid #24304a;cursor:pointer}li:hover{background:#1c263b}
 pre{margin:0;padding:10px;background:#0b111d;border:1px solid var(--line);border-radius:10px;white-space:pre-wrap}
 canvas{width:100%;border:1px solid var(--line);border-radius:10px;background:#0b111d;margin-top:10px}
+
+#viewer3d{width:100%;min-height:480px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#0b111d}

@@ -1,13 +1,13 @@
 # Debadge Studio Pro Desktop
 
-Ho spinto il progetto verso quello che hai chiesto:
-- carichi un'immagine e generi preview tattoo per zona corpo
-- apri cartella `stream` veicoli e vedi preview tecnica file
-- preset debadge e handling preview
+Ora puoi davvero aprire un modello 3D del veicolo e modificarlo a livello base dentro l'app.
 
-## Nuove funzioni desktop
-- **Tattoo Creator da immagine** con canvas e mapping zona (`Head`, `Torso`, `LeftArm`, `RightArm`, `LeftLeg`, `RightLeg`).
-- **Vehicle Stream Explorer** per `.yft/.ytd/.ydr/.meta` con ricerca live e inspect header.
+## Nuove funzioni 3D
+- Apertura modello `.glb/.gltf` da desktop.
+- Viewer 3D con orbit camera.
+- Modifiche immediate: colore materiale, scala, rotazione.
+- Stream explorer per file veicolo (`.yft/.ydr/.ytd/.meta`) con preview tecnica.
+- Tattoo da immagine con preview per zona corpo.
 
 ## Build EXE
 ```bash
@@ -16,4 +16,4 @@ npm install
 npm run build
 ```
 
-> Nota tecnica: un editor 3D completo "tipo ZModeler" richiede pipeline grafica avanzata (parser binari Rockstar + rendering 3D + editing mesh). Questa versione prepara la base UX + preview per arrivarci.
+> Nota: editing avanzato completo tipo ZModeler (mesh/vertex/rig full) richiede moduli 3D dedicati aggiuntivi. Questa base ora include preview e modifiche visuali reali in-app.
