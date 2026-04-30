@@ -1,5 +1,3 @@
-local uiOpen = false
-
 local function notify(msg)
     BeginTextCommandThefeedPost('STRING')
     AddTextComponentSubstringPlayerName(msg)
@@ -22,13 +20,7 @@ local function applyDebadgePreset(vehicle, preset)
     end
 end
 
-local function closeUi()
-    uiOpen = false
-    SetNuiFocus(false, false)
-    SendNUIMessage({ action = 'close' })
-end
-
-local function applyForCurrentVehicle()
+RegisterNetEvent('debadge:applyPreset', function(preset)
     local ped = PlayerPedId()
     if not IsPedInAnyVehicle(ped, false) then
         notify('~r~Debadge: devi essere in un veicolo.')
@@ -42,34 +34,11 @@ local function applyForCurrentVehicle()
     end
 
     SetVehicleModKit(vehicle, 0)
-    applyDebadgePreset(vehicle, Config.DefaultPreset)
+    applyDebadgePreset(vehicle, preset or Config.DefaultPreset)
     TriggerServerEvent('debadge:logApplied', GetEntityModel(vehicle))
     notify('~g~Debadge applicato con successo.')
-end
-
-RegisterNUICallback('applyPreset', function(_, cb)
-    applyForCurrentVehicle()
-    cb({ ok = true })
-end)
-
-RegisterNUICallback('closeUi', function(_, cb)
-    closeUi()
-    cb({ ok = true })
 end)
 
 RegisterCommand(Config.Command, function()
-    uiOpen = true
-    SetNuiFocus(true, true)
-    SendNUIMessage({ action = 'open' })
+    TriggerEvent('debadge:applyPreset', Config.DefaultPreset)
 end, false)
-
-RegisterKeyMapping(Config.Command, 'Apri Debadge Studio', 'keyboard', 'F6')
-
-CreateThread(function()
-    while true do
-        Wait(0)
-        if uiOpen and IsControlJustPressed(0, 322) then
-            closeUi()
-        end
-    end
-end)

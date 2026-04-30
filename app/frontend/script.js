@@ -73,9 +73,19 @@ async function buildPlan() {
 $("scanBtn").onclick = scan;
 $("savePresetBtn").onclick = savePreset;
 $("planBtn").onclick = buildPlan;
+$("exportLuaBtn").onclick = exportLua;
 $("search").oninput = () => {
   const q = $("search").value.toLowerCase();
   renderList(files.filter((f) => f.path.toLowerCase().includes(q)));
 };
 
 loadPresets();
+
+
+async function exportLua() {
+  const preset = $("exportPreset").value.trim();
+  if (!preset) return;
+  const res = await fetch(`${api}/export/lua?preset_name=${encodeURIComponent(preset)}`);
+  const data = await res.json();
+  $("luaOut").textContent = data.lua || JSON.stringify(data, null, 2);
+}
