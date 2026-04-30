@@ -46,4 +46,31 @@ ipcMain.handle('list-tattoo', ()=> readJson(tattoosFile));
 ipcMain.handle('save-tattoo', (_, preset)=>{ const data=readJson(tattoosFile).filter(x=>x.name!==preset.name); data.push(preset); writeJson(tattoosFile,data); return data;});
 ipcMain.handle('handling-preview', (_, p)=> ({ top_speed_index: Number(((p.fInitialDriveForce*380)/(Math.max(0.1,p.fMass/1000))).toFixed(2)), stability_index: Number(((p.fTractionCurveMax*100)/(Math.max(0.1,p.fMass/1000))).toFixed(2)), braking_index: Number((p.fBrakeForce*100).toFixed(2)) }));
 
+
+ipcMain.handle('pick-image', async () => {
+  const { canceled, filePaths } = await dialog.showOpenDialog({ properties: ['openFile'], filters:[{name:'Images', extensions:['png','jpg','jpeg','webp']}] });
+  if (canceled) return null;
+  return filePaths[0];
+});
+
+ipcMain.handle('read-image-base64', async (_, imagePath) => {
+  const buf = fs.readFileSync(imagePath);
+  return `data:image/${path.extname(imagePath).replace('.','')};base64,${buf.toString('base64')}`;
+});
+
+ipcMain.handle('scan-vehicle-stream', async (_, rootPath) => {
+  const exts = new Set(['.yft', '.ytd', '.ydr', '.meta']);
+  const vehicles = [];
+  function walk(dir) {
+    for (const file of fs.readdirSync(dir)) {
+      const full = path.join(dir, file);
+      const st = fs.statSync(full);
+      if (st.isDirectory()) walk(full);
+      else if (exts.has(path.extname(full).toLowerCase())) vehicles.push({name:file,path:full,ext:path.extname(full).toLowerCase(),size:st.size});
+    }
+  }
+  walk(rootPath);
+  return vehicles;
+});
+
 app.whenReady().then(createWindow);

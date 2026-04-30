@@ -1,50 +1,35 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width,initial-scale=1'>
-  <link rel='stylesheet' href='renderer.css'>
-  <title>Debadge Studio Pro</title>
+  <meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link rel='stylesheet' href='renderer.css'><title>Debadge Studio Pro</title>
 </head>
 <body>
-  <header>
-    <h1>Debadge Studio Pro</h1>
-    <p>Workflow premium per debadge, tattoo e handling</p>
-  </header>
+<header><h1>Debadge Studio Pro</h1><p>Tattoo AI-like composer + Vehicle Stream Explorer</p></header>
 
-  <section class='panel'>
-    <div class='row'>
-      <button id='pick'>Apri cartella GTA/FiveM</button>
-      <input id='search' placeholder='Cerca file...'>
-      <span id='folder'></span>
-    </div>
-    <div class='stats'>
-      <span id='tot'>Totale: 0</span><span id='ytd'>YTD: 0</span><span id='ydr'>YDR: 0</span><span id='yft'>YFT: 0</span><span id='meta'>META: 0</span>
-    </div>
-    <div class='grid'>
-      <ul id='files'></ul>
-      <pre id='inspect'>Seleziona un file per preview tecnica.</pre>
-    </div>
-  </section>
+<section class='panel'>
+  <h2>Vehicle Stream Explorer (preview + edit base)</h2>
+  <div class='row'><button id='pick'>Apri cartella stream</button><input id='search' placeholder='Cerca file...'><span id='folder'></span></div>
+  <div class='stats'><span id='tot'>Totale: 0</span><span id='ytd'>YTD: 0</span><span id='ydr'>YDR: 0</span><span id='yft'>YFT: 0</span><span id='meta'>META: 0</span></div>
+  <div class='grid'><ul id='files'></ul><pre id='inspect'>Anteprima tecnica file stream.</pre></div>
+</section>
 
-  <section class='panel'>
-    <h2>Debadge Presets</h2>
-    <div class='row'><input id='dname' placeholder='Nome preset'><button id='dsave'>Salva</button><button id='dlist'>Lista</button></div>
-    <pre id='dout'></pre>
-  </section>
+<section class='panel'>
+  <h2>Tattoo Creator da Immagine</h2>
+  <div class='row'><button id='pickImg'>Carica immagine tattoo</button><input id='zone' placeholder='Zona (es. MP_Torso)'><button id='saveTattoo'>Salva preset tattoo</button></div>
+  <canvas id='tattooCanvas' width='900' height='300'></canvas>
+  <pre id='tattooOut'>Carica una immagine per generare preview tattoo.</pre>
+</section>
 
-  <section class='panel'>
-    <h2>Tattoo Presets</h2>
-    <div class='row'><input id='tname' placeholder='Nome'><input id='collection' placeholder='Collection'><input id='overlay' placeholder='Overlay'><input id='zone' placeholder='Zona'><button id='tsave'>Salva</button><button id='tlist'>Lista</button></div>
-    <pre id='tout'></pre>
-  </section>
+<section class='panel'>
+  <h2>Debadge Presets</h2>
+  <div class='row'><input id='dname' placeholder='Nome preset'><button id='dsave'>Salva</button><button id='dlist'>Lista</button></div><pre id='dout'></pre>
+</section>
 
-  <section class='panel'>
-    <h2>Handling Lab</h2>
-    <div class='row'><input id='mass' placeholder='Mass'><input id='drive' placeholder='Drive'><input id='brake' placeholder='Brake'><input id='traction' placeholder='Traction'><button id='hprev'>Preview</button></div>
-    <pre id='hout'></pre>
-  </section>
-
-  <script src='renderer.js'></script>
+<section class='panel'>
+  <h2>Handling Lab</h2>
+  <div class='row'><input id='mass' placeholder='Mass'><input id='drive' placeholder='Drive'><input id='brake' placeholder='Brake'><input id='traction' placeholder='Traction'><button id='hprev'>Preview</button></div><pre id='hout'></pre>
+</section>
+<script src='renderer.js'></script>
 </body>
 </html>
