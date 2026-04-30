@@ -1,0 +1,27 @@
+:root {
+  color-scheme: dark;
+  --bg: #0e0f13;
+  --panel: #161922;
+  --accent: #45c0ff;
+  --text: #edf2ff;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1b2030, var(--bg));
+  color: var(--text);
+}
+header, main { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+.panel, .card { background: var(--panel); border: 1px solid #293045; border-radius: 14px; padding: 1rem; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; margin: 1rem 0; }
+.row { display: flex; gap: .5rem; }
+input, button {
+  padding: .7rem .9rem; border-radius: 10px; border: 1px solid #334; background: #10141f; color: #eef;
+}
+input { flex: 1; }
+button { background: linear-gradient(90deg, #3086ff, var(--accent)); font-weight: 700; cursor: pointer; }
+#fileList { list-style: none; margin: .5rem 0 0; padding: 0; max-height: 300px; overflow: auto; }
+#fileList li { padding: .6rem; border-bottom: 1px solid #2a2f3f; cursor: pointer; }
+#fileList li:hover { background: #1d2333; }
+pre { white-space: pre-wrap; background: #0b0d14; border-radius: 12px; padding: 1rem; }
+.hint { color: #8ea8d3; font-size: .9rem; }
