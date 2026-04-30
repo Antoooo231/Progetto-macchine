@@ -33,3 +33,9 @@ Per avere app "fantastica" stile piattaforma professionale (preview 3D completa,
 
 ### FiveM manifest
 Se avvii direttamente questa cartella come resource, ora è presente anche un `fxmanifest.lua` in root che punta agli script dentro `fivem-resource/`.
+
+
+## In game (UI)
+- Usa `/debadge` oppure premi `F6` per aprire la UI NUI.
+- Dalla UI premi **Applica preset** per eseguire il debadge sul veicolo che stai guidando.
+- Se non vedi la chat, il feedback compare anche come notifica GTA in alto a sinistra.

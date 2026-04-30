@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{margin:0;font-family:Arial,sans-serif;background:transparent}
+    #app{display:none;position:absolute;inset:0;background:rgba(0,0,0,.45);align-items:center;justify-content:center}
+    .card{width:420px;background:#141823;color:#fff;border:1px solid #2f3b5a;border-radius:12px;padding:16px}
+    button{width:100%;padding:10px;margin-top:8px;border:0;border-radius:8px;font-weight:700;cursor:pointer}
+    .primary{background:#35a0ff;color:#fff}.danger{background:#a33}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="card">
+      <h2>Debadge Studio</h2>
+      <p>Applica il preset di debadge al veicolo corrente.</p>
+      <button class="primary" id="applyBtn">Applica preset</button>
+      <button class="danger" id="closeBtn">Chiudi</button>
+    </div>
+  </div>
+  <script>
+    const app = document.getElementById('app')
+    window.addEventListener('message', (e) => {
+      if (e.data?.action === 'open') app.style.display = 'flex'
+      if (e.data?.action === 'close') app.style.display = 'none'
+    })
+    document.getElementById('applyBtn').onclick = async () => {
+      await fetch(`https://${GetParentResourceName()}/applyPreset`, {method:'POST',headers:{'Content-Type':'application/json'},body:'{}'})
+    }
+    document.getElementById('closeBtn').onclick = async () => {
+      await fetch(`https://${GetParentResourceName()}/closeUi`, {method:'POST',headers:{'Content-Type':'application/json'},body:'{}'})
+    }
+    document.addEventListener('keydown', async (e) => {
+      if (e.key === 'Escape') {
+        await fetch(`https://${GetParentResourceName()}/closeUi`, {method:'POST',headers:{'Content-Type':'application/json'},body:'{}'})
+      }
+    })
+  </script>
+</body>
+</html>
