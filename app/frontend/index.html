@@ -1,62 +1,9 @@
-<!doctype html>
-<html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Debadge Studio</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Debadge Studio</h1>
-      <p>Scanner + OPreview + builder preset debadge per FiveM</p>
-    </header>
-
-    <main>
-      <section class="panel">
-        <h2>Scansione cartella GTA/FiveM</h2>
-        <div class="row"><input id="rootPath" placeholder="/path/to/GTA V o resources" /><button id="scanBtn">Scansiona</button></div>
-      </section>
-
-      <section class="grid">
-        <article class="card"><h3>Totale</h3><p id="total">0</p></article>
-        <article class="card"><h3>YTD</h3><p id="ytd">0</p></article>
-        <article class="card"><h3>YDR</h3><p id="ydr">0</p></article>
-        <article class="card"><h3>YFT</h3><p id="yft">0</p></article>
-      </section>
-
-      <section class="panel">
-        <h2>Archivio file + OPreview</h2>
-        <input id="search" placeholder="Cerca file..." />
-        <ul id="fileList"></ul>
-        <pre id="preview">Seleziona un file per vedere l'anteprima tecnica.</pre>
-      </section>
-
-      <section class="panel">
-        <h2>Preset Debadge</h2>
-        <div class="row"><input id="presetName" placeholder="Nome preset (es: sport_clean)" /><button id="savePresetBtn">Salva preset</button></div>
-        <p class="hint">Config rapida: remove livery = true, extras 1/2/3, modType 48 (estendibile da API).</p>
-        <ul id="presetList"></ul>
-      </section>
-
-      <section class="panel">
-        <h2>Genera piano script FiveM</h2>
-        <div class="row">
-          <input id="modelHash" placeholder="Model hash (es. adder)" />
-          <input id="selectedPreset" placeholder="Preset name" />
-          <button id="planBtn">Genera piano</button>
-        </div>
-        <pre id="planOut">Qui comparirà il piano operazioni Lua.</pre>
-      </section>
-    
-      <section class="panel">
-        <h2>Export Lua (app esterna → FiveM)</h2>
-        <div class="row"><input id="exportPreset" placeholder="Preset da esportare" /><button id="exportLuaBtn">Esporta Lua</button></div>
-        <pre id="luaOut">Qui comparirà lo snippet Lua da copiare nella resource/server.</pre>
-      </section>
-
-    </main>
-
-    <script src="script.js"></script>
-  </body>
-</html>
+<!doctype html><html lang="it"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Debadge Studio Pro</title><link rel="stylesheet" href="styles.css"/></head><body>
+<header><h1>Debadge Studio Pro (App esterna)</h1></header>
+<main>
+<section class="panel"><h2>Scan + Preview file GTA/FiveM</h2><div class="row"><input id="rootPath" placeholder="Percorso cartella"/><button id="scanBtn">Scansiona</button></div><pre id="scanOut"></pre></section>
+<section class="panel"><h2>Debadge preset</h2><div class="row"><input id="debadgeName" placeholder="Nome"/><button id="saveDebadge">Salva Debadge</button></div><pre id="debadgeOut"></pre></section>
+<section class="panel"><h2>Tattoo preset (stile Pleb Forge workflow)</h2><div class="row"><input id="tattooName" placeholder="Nome"/><input id="collection" placeholder="Collection"/><input id="overlay" placeholder="Overlay"/><input id="zone" placeholder="Zona"/><button id="saveTattoo">Salva Tattoo</button></div><pre id="tattooOut"></pre></section>
+<section class="panel"><h2>Handling.meta editor + preview</h2><div class="row"><input id="model" placeholder="Model"/><input id="mass" placeholder="Mass"/><input id="drive" placeholder="DriveForce"/><input id="brake" placeholder="BrakeForce"/><input id="traction" placeholder="Traction"/></div><div class="row"><button id="previewHandling">Preview handling</button><button id="exportHandling">Export handling XML</button></div><pre id="handlingOut"></pre></section>
+</main>
+<script src="script.js"></script></body></html>

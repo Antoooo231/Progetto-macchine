@@ -1,18 +1,20 @@
-# Debadge Studio (App esterna per FiveM / GTA V)
+# Debadge Studio Pro - App esterna completa (base)
 
-Perfetto: questa versione è orientata a **app esterna**, non UI dentro FiveM.
+Ho esteso l'app esterna per coprire quello che hai chiesto:
+- debadge auto
+- preset tattoo per FiveM (collection/overlay/zone)
+- handling.meta editor con preview indici
+- export XML handling item
+- scan e preview file GTA/FiveM
 
-## Cosa fa ora
-- App esterna (backend + frontend locale) per:
-  - scansione `.ytd/.ydr/.yft`
-  - preview tecnica file
-  - creazione/gestione preset debadge
-  - generazione piano operazioni
-  - export snippet Lua (`/export/lua`) da portare su FiveM
-- Resource FiveM minimale che applica preset via comando/evento (`/debadge` o `debadge:applyPreset`).
+## Endpoint principali
+- `POST /scan`
+- `GET/POST /presets/debadge`
+- `GET/POST /presets/tattoos`
+- `POST /handling/preview`
+- `POST /handling/export-meta`
 
-## Avvio app esterna
-### Backend
+## Avvio
 ```bash
 cd app/backend
 python3 -m venv .venv
@@ -21,14 +23,7 @@ pip install -r requirements.txt
 uvicorn main:app --reload --port 8090
 ```
 
-### Frontend
 ```bash
 cd app/frontend
 python3 -m http.server 5173
 ```
-Apri `http://localhost:5173`.
-
-## Flusso consigliato
-1. Crei preset nell'app esterna.
-2. Esporti Lua con **Export Lua**.
-3. Usi preset esportato nella tua pipeline/resource FiveM.
