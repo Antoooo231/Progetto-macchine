@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debadge Studio Pro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header><h1>Debadge Studio Pro</h1><p>App esterna professionale per asset, tattoo e handling</p></header>
+  <main>
+    <section class="panel">
+      <h2>1) Asset Browser + Preview</h2>
+      <div class="row"><input id="rootPath" placeholder="Percorso GTA/FiveM assets" /><button id="scanBtn">Scansiona</button></div>
+      <div class="two-col">
+        <ul id="fileList"></ul>
+        <pre id="inspectOut">Seleziona un file dalla lista per anteprima header.</pre>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>2) Debadge Preset Builder</h2>
+      <div class="row"><input id="debadgeName" placeholder="Nome preset"/><button id="saveDebadge">Salva preset</button><button id="listDebadge">Lista preset</button></div>
+      <pre id="debadgeOut"></pre>
+    </section>
+
+    <section class="panel">
+      <h2>3) Tattoo Builder (zone-based)</h2>
+      <div class="row"><input id="tattooName" placeholder="Nome"/><input id="collection" placeholder="Collection"/><input id="overlay" placeholder="Overlay"/><input id="zone" placeholder="Zona"/><button id="saveTattoo">Salva tattoo</button><button id="listTattoo">Lista tattoo</button></div>
+      <pre id="tattooOut"></pre>
+    </section>
+
+    <section class="panel">
+      <h2>4) Handling.meta Editor + Live Preview</h2>
+      <div class="row"><input id="model" placeholder="Model"/><input id="mass" placeholder="Mass"/><input id="drive" placeholder="DriveForce"/><input id="brake" placeholder="BrakeForce"/><input id="traction" placeholder="Traction"/></div>
+      <div class="row"><button id="previewHandling">Preview handling</button><button id="exportHandling">Export XML</button></div>
+      <pre id="handlingOut"></pre>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
