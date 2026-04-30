@@ -1,27 +1,14 @@
-:root {
-  color-scheme: dark;
-  --bg: #0e0f13;
-  --panel: #161922;
-  --accent: #45c0ff;
-  --text: #edf2ff;
-}
-body {
-  margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  background: radial-gradient(circle at top, #1b2030, var(--bg));
-  color: var(--text);
-}
-header, main { max-width: 1100px; margin: 0 auto; padding: 1rem; }
-.panel, .card { background: var(--panel); border: 1px solid #293045; border-radius: 14px; padding: 1rem; }
-.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; margin: 1rem 0; }
-.row { display: flex; gap: .5rem; }
-input, button {
-  padding: .7rem .9rem; border-radius: 10px; border: 1px solid #334; background: #10141f; color: #eef;
-}
-input { flex: 1; }
-button { background: linear-gradient(90deg, #3086ff, var(--accent)); font-weight: 700; cursor: pointer; }
-#fileList { list-style: none; margin: .5rem 0 0; padding: 0; max-height: 300px; overflow: auto; }
-#fileList li { padding: .6rem; border-bottom: 1px solid #2a2f3f; cursor: pointer; }
-#fileList li:hover { background: #1d2333; }
-pre { white-space: pre-wrap; background: #0b0d14; border-radius: 12px; padding: 1rem; }
-.hint { color: #8ea8d3; font-size: .9rem; }
+:root{--bg:#0d1117;--panel:#161b22;--text:#e6edf3;--acc:#3ea6ff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
+header,main{max-width:1200px;margin:0 auto;padding:16px}
+.panel{background:var(--panel);border:1px solid #2b3240;border-radius:14px;padding:14px;margin-bottom:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+input,button{padding:10px;border-radius:10px;border:1px solid #303744;background:#0f141c;color:var(--text)}
+input{flex:1;min-width:120px}
+button{background:linear-gradient(90deg,#277bff,var(--acc));font-weight:700;cursor:pointer}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+ul{max-height:260px;overflow:auto;margin:0;padding:0;list-style:none;border:1px solid #2b3240;border-radius:10px}
+li{padding:8px;border-bottom:1px solid #222a37;cursor:pointer}
+li:hover{background:#1c2330}
+pre{margin:0;background:#0b0f15;border:1px solid #2b3240;border-radius:10px;padding:10px;white-space:pre-wrap}

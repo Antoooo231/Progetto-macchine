@@ -144,3 +144,12 @@ def export_handling_meta(preset: HandlingPreset) -> dict[str, str]:
     ET.SubElement(handling, 'fTractionCurveMax', {'value': str(preset.fTractionCurveMax)})
     xml = ET.tostring(handling, encoding='unicode')
     return {'file_name': f'{preset.model_name}_handling_item.xml', 'xml': xml}
+
+
+@app.get('/inspect')
+def inspect(path: str) -> dict[str, str | int]:
+    file = Path(path).expanduser().resolve()
+    if not file.exists() or not file.is_file():
+        raise HTTPException(status_code=404, detail='File non trovato')
+    raw = file.read_bytes()[:128]
+    return {'path': str(file), 'size_bytes': file.stat().st_size, 'extension': file.suffix.lower(), 'magic': raw[:4].decode('latin-1', errors='replace'), 'header_hex': raw.hex(' ')}

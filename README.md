@@ -1,18 +1,13 @@
-# Debadge Studio Pro - App esterna completa (base)
+# Debadge Studio Pro - SOLO App Esterna
 
-Ho esteso l'app esterna per coprire quello che hai chiesto:
-- debadge auto
-- preset tattoo per FiveM (collection/overlay/zone)
-- handling.meta editor con preview indici
-- export XML handling item
-- scan e preview file GTA/FiveM
+Ricevuto: non ti servono i file FiveM.
+Ho quindi rimosso tutta la parte resource/script in-game e lasciato il progetto focalizzato su una app esterna fatta bene.
 
-## Endpoint principali
-- `POST /scan`
-- `GET/POST /presets/debadge`
-- `GET/POST /presets/tattoos`
-- `POST /handling/preview`
-- `POST /handling/export-meta`
+## Moduli disponibili
+1. **Asset Browser + Preview** (`.ytd/.ydr/.yft/.meta`) con inspect header/magic.
+2. **Debadge Preset Builder** con salvataggio/lista preset.
+3. **Tattoo Builder** con `collection`, `overlay`, `zone`, `opacity`.
+4. **Handling.meta Editor** con preview indici e export XML item.
 
 ## Avvio
 ```bash
